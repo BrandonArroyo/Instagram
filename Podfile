@@ -5,5 +5,7 @@ use_frameworks!
 
 target 'Instagram' do
 	pod 'Parse'
+	pod 'ALCameraViewController'
+	pod 'JGProgressHUD'
 end
 

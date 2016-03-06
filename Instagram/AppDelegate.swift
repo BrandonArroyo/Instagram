@@ -23,10 +23,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.applicationId = "Instagram"
                 configuration.clientKey = "MasterSword"
                 configuration.server = "https://glacial-shelf-18573.herokuapp.com/parse"
+                UITabBar.appearance().barTintColor = UIColor.blackColor()
             })
         )
         
-        
+        if PFUser.currentUser() != nil {
+            // if there is a logged in user then load the home view controller
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController = storyboard.instantiateViewControllerWithIdentifier("Main") as! UIViewController
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+            
+            print("already logged in ")
+        }
         
         
         return true
